@@ -5,7 +5,7 @@
 # @Last Modified by:   Python
 # @Last Modified time: 2016-09-20 16:58:52
 
-age=26
-name="刘成功"
+age = 26
+name = "刘成功"
 
-print '%12s is %3d years old' %(age,name)
+print '%12s is %3d years old' % (age , name)
