@@ -17,10 +17,13 @@ import os
 import re
 
 dir_path='E:/a/'
+#print os.listdir(dir_path)
 for file in os.listdir(dir_path):
-    print file
+    #print file
     newfile=re.findall(r"\d+",file)
+#    newfile=re.sub(r'\s+','.',file)
     a=newfile[0]
-    os.rename (dir_path+file,dir_path+a+".txt")
+    print (dir_path+file,dir_path+a+".mp4")
+    os.rename (dir_path+file,dir_path+a+".mp4")
     #print type(a)
 os.listdir('E:/')
