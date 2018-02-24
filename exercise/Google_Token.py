@@ -27,7 +27,7 @@ def Main():
     for i in range(0,3):
         xsh.Screen.Send(IP[i])
         xsh.Screen.Send('.')
-    xsh.Screen.Send(IP[3])
+    xsh.Screen.Send(abs(IP[3]))
     xsh.Screen.Send('\r')
     ###sudo su
     xsh.Screen.Synchronous = True

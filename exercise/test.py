@@ -11,3 +11,7 @@ print a + b
 l = '刘'
 cg = '成功'
 print l + cg
+
+
+c='01'
+print abs(int(c))
