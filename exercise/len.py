@@ -4,8 +4,6 @@
 # @Author  : Apy
 # @File    : len.py
 
-import re
-
 # a = 1234
 # b = "adsf234"
 #
@@ -15,8 +13,8 @@ import re
 
 c = "C:\Users\Apy\Documents\NetSarang\Xshell\Sessions\Mylc\10.150.20.1-UE-nginx-ftp.xsh"
 
-#IP = re.findall(r"\d+", c)
-for i in range(0,7):
+# IP = re.findall(r"\d+", c)
+for i in range(0, 7):
     print(i)
     print('.')
 print(i)

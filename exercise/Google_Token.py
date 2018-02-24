@@ -24,7 +24,7 @@ def Main():
     IP = re.findall(r"\d+", str(xsh.Session.Path))
 
     ###enter ip addr
-    for i in range(0,3):
+    for i in range(0, 3):
         xsh.Screen.Send(IP[i])
         xsh.Screen.Send('.')
     xsh.Screen.Send(abs(IP[3]))

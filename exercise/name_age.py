@@ -8,4 +8,4 @@
 age = 26
 name = "刘成功"
 
-print '%12s is %3d years old' % (age , name)
+print '%12s is %3d years old' % (age, name)
