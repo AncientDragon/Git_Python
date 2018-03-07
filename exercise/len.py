@@ -11,7 +11,7 @@
 # print len(str(a))
 # print len(b)
 
-c = "C:\Users\Apy\Documents\NetSarang\Xshell\Sessions\Mylc\10.150.20.1.1-UE-nginx-ftp.xsh"
+c = "C:\Users\Apy\Documents\NetSarang\Xshell\Sessions\Mylc-1\aa10.150.20.1-UE-nginx-ftp.xsh"
 
 # IP = re.findall(r"\d+", c)
 #for i in range(0, 7):
@@ -33,5 +33,8 @@ import onetimepass as otp
 #xsh.Screen.Send(fin_token)
 ####enter token
 #xsh.Screen.Send('\r')
-IP = re.findall(r"\d+.", c)
-print len(IP)
+IP = re.findall(r'\d+.\d+.\d+.\d+', c)
+a=IP[0]
+#IP = re.compile(r'(?<![\.\d])(?:\d{1,3}\.){3}\d{1,3}(?![\.\d])')
+print IP
+print a
