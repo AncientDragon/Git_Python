@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Author: Python
-# @Date:   2016-09-20 16:45:33
-# @Last Modified by:   Python
-# @Last Modified time: 2016-09-20 16:54:56
 import hmac,base64,struct,hashlib,time,re
 import sys
 
@@ -17,6 +11,17 @@ def get_hotp_token(secret, intervals_no):
 
 def get_totp_token(secret):
 	return get_hotp_token(secret, intervals_no=int(time.time())//30)
+
+####获取IP形式字符串
+#def IP_FIN(ip):
+#   IP_Mid = str(abs(int(ip[0])))
+#   for i in range(1, 4):
+#       IP_Mid = (IP_Mid+'.'+str(abs(int(ip[i]))))
+#   return IP_Mid	
+def IP_FIN(ip):
+	abs_ip = [int(i) for i in ip]
+	IP_FIN = '.'.join(str(i)for i in abs_ip)
+	return IP_FIN
 
 def main():
 	#user = "liuchenggong"#str(crt.Arguments[0])     # user account for ssh account
@@ -39,13 +44,15 @@ def main():
 	####从session名称获取主机IP
 	objTab = crt.GetScriptTab()
 	szSessionName = objTab.Session.Path
-	IP = re.findall(r"\d+", str(szSessionName.split('\\')[1]),re.S)
+	IP_ORI = re.findall(r"\d+", str(szSessionName.split('\\')[1]),re.S)
+	IP = IP_FIN(IP_ORI)
 	####出现Opt> 后输入主机IP
 	result = crt.Screen.WaitForString("Opt> ")
-	for i in range(0, 3):
-		crt.Screen.Send(str(abs(int(IP[i]))))
-		crt.Screen.Send(".")
-	crt.Screen.Send(str(abs(int(IP[3])))+"\r")
+	#for i in range(0, 3):
+	#	crt.Screen.Send(str(abs(int(IP[i]))))
+	#	crt.Screen.Send(".")
+	#crt.Screen.Send(str(abs(int(IP[3])))+"\r")
+	crt.Screen.Send(str(IP)+'\r')
 	####切换到root: sudo su -
 	result = crt.Screen.WaitForString("~]$ ")
 	crt.Screen.Send("sudo su -\r")
