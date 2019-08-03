@@ -19,13 +19,16 @@ def get_hotp_token(secret, intervals_no):
 def get_totp_token(secret):
 	return get_hotp_token(secret, intervals_no=int(time.time())//30)
 	
+####获取IP形式字符串
 #def IP_FIN(ip):
-#	IP_Mid = str(abs(int(ip[0])))
-#	for i in range(1, 4):
-#		IP_Mid = (IP_Mid+'.'+str(abs(int(ip[i]))))
-#	return IP_Mid
+#   IP_Mid = str(abs(int(ip[0])))
+#   for i in range(1, 4):
+#       IP_Mid = (IP_Mid+'.'+str(abs(int(ip[i]))))
+#   return IP_Mid	
 def IP_FIN(ip):
-	return '.'.join(ip)
+	abs_ip = [int(i) for i in ip]
+	IP_FIN = '.'.join(str(i)for i in abs_ip)
+	return IP_FIN
 
 def Main():	
 	import onetimepass as otp
