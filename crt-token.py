@@ -1,23 +1,41 @@
 import hmac,base64,struct,hashlib,time,re
-import sys
 
-def get_hotp_token(secret, intervals_no):
-	key = base64.b32decode(secret, True)
-	msg = struct.pack(">Q", intervals_no)
-	h = hmac.new(key, msg, hashlib.sha1).digest()
-	o = ord(h[19]) & 15
-	h = (struct.unpack(">I", h[o:o+4])[0] & 0x7fffffff) % 1000000
-	return h
+####方法1
+#def Token(token):
+#	totp = pyotp.TOTP("token")
+#	a = totp.now()
+#	return a
 
-def get_totp_token(secret):
-	return get_hotp_token(secret, intervals_no=int(time.time())//30)
+####方法2
+def Token(secretKey):
+    input = int(time.time())//30
+    key = base64.b32decode(secretKey)
+    msg = struct.pack(">Q", input)
+    googleCode = hmac.new(key, msg, hashlib.sha1).digest()
+    o = ord(googleCode[19]) & 15
+    googleCode = str((struct.unpack(">I", googleCode[o:o+4])[0] & 0x7fffffff) % 1000000)
+    if len(googleCode) == 5:             # 如果验证码的第一位是0，则不会显示。此处判断若是5位码，则在第一位补上0
+        googleCode = '0' + googleCode
+    return googleCode
 
-####获取IP形式字符串
-#def IP_FIN(ip):
-#   IP_Mid = str(abs(int(ip[0])))
-#   for i in range(1, 4):
-#       IP_Mid = (IP_Mid+'.'+str(abs(int(ip[i]))))
-#   return IP_Mid	
+#####方法3
+#def get_hotp_token(secret, intervals_no):
+#	key = base64.b32decode(secret, True)
+#	msg = struct.pack(">Q", intervals_no)
+#	h = hmac.new(key, msg, hashlib.sha1).digest()
+#	o = ord(h[19]) & 15
+#	h = (struct.unpack(">I", h[o:o+4])[0] & 0x7fffffff) % 1000000
+#	return h
+#
+#def Token(secret):
+#	return get_hotp_token(secret, intervals_no=int(time.time())//30)
+
+###获取IP形式字符串
+def IP_FIN(ip):
+   IP_Mid = str(abs(int(ip[0])))
+   for i in range(1, 4):
+       IP_Mid = (IP_Mid+'.'+str(abs(int(ip[i]))))
+   return IP_Mid	
 def IP_FIN(ip):
 	abs_ip = [int(i) for i in ip]
 	IP_FIN = '.'.join(str(i)for i in abs_ip)
@@ -34,8 +52,8 @@ def main():
 	#    crt.Screen.Send("yes\r")
 
 	####出现[MFA auth]:后输入token
-	result = crt.Screen.WaitForString("[MFA auth]:", 5)###出现[MFA auth]:触发条件，最多等待五秒后超时
-	crt.Screen.Send(str(get_totp_token(gtoken))+"\r")
+	result = crt.Screen.WaitForString("[MFA auth]:")###出现[MFA auth]:触发条件，最多等待五秒后超时
+	crt.Screen.Send(str(Token(gtoken))+"\r")
 	#result = crt.Screen.WaitForString("assword:", 5)
 	#if result == 0:
 	#    return ""
