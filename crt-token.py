@@ -36,10 +36,10 @@ def IP_FIN(ip):
    for i in range(1, 4):
        IP_Mid = (IP_Mid+'.'+str(abs(int(ip[i]))))
    return IP_Mid	
-def IP_FIN(ip):
-	abs_ip = [int(i) for i in ip]
-	IP_FIN = '.'.join(str(i)for i in abs_ip)
-	return IP_FIN
+#def IP_FIN(ip):
+#	abs_ip = [int(i) for i in ip]
+#	IP_FIN = '.'.join(str(i)for i in abs_ip)
+#	return IP_FIN
 
 def main():
 	#user = "liuchenggong"#str(crt.Arguments[0])     # user account for ssh account
