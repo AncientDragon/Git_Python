@@ -62,7 +62,7 @@ def main():
 	####从session名称获取主机IP
 	objTab = crt.GetScriptTab()
 	szSessionName = objTab.Session.Path
-	IP_ORI = re.findall(r"\d+", str(szSessionName.split('\\')[1]),re.S)
+	IP_ORI = re.findall(r"\d+", str(szSessionName.split('\\')[2]),re.S)
 	IP = IP_FIN(IP_ORI)
 	####出现Opt> 后输入主机IP
 	result = crt.Screen.WaitForString("Opt> ")
