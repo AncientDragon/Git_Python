@@ -1,3 +1,0 @@
-aaa="/c/Users/mr_ac/Documents/NetSarang/Xshell/Sessions/192.168.128.88_123.xsh"
-
-print re.findall(r"\d+", str(aaa.split('\\')[-1]))
