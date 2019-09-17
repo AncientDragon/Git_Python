@@ -29,7 +29,7 @@ def Token(secretKey):
 #def get_totp_token(secret):
 #	return get_hotp_token(secret, intervals_no=int(time.time())//30)
 
-####获取IP形式字符串
+####Get IP
 def IP_FIN(ip):
    IP_Mid = str(abs(int(ip[0])))
    for i in range(1, 4):
