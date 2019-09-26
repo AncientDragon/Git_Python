@@ -44,7 +44,8 @@ def IP_FIN(ip):
 def main():
 	#user = "liuchenggong"#str(crt.Arguments[0])     # user account for ssh account
 	#pwd = "As111@@@" #str(crt.Arguments[2])     # password for ssh
-	gtoken = "3NXBYATWGIIZ3LEV" #str(crt.Arguments[1])  # google token value
+	#gtoken = "3NXBYATWGIIZ3LEV" #str(crt.Arguments[1])  # google token value
+	gtoken = "KZS774YENHNW2SVU"
 
 	#crt.Screen.Send("ssh "+user+"@jumper.izuche.com -p 2222\r")    # ssh command
 	#result = crt.Screen.WaitForString("connecting (yes/no)?", 2)
