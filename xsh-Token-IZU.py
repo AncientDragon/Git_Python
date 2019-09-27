@@ -42,7 +42,7 @@ def IP_FIN(ip):
 
 def Main():	
 	import onetimepass as otp
-	my_secret = '3NXBYATWGIIZ3LEV'
+	my_secret = 'KZS774YENHNW2SVU'
 	my_token = str(Token(my_secret))
 	###get IP addr
 	IP_ORI = re.findall(r"\d+", str(xsh.Session.Path.split('\\')[-1]))
