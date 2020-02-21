@@ -33,6 +33,7 @@ def IP_FIN(ip):
 def Main():	
 	import onetimepass as otp
 	my_secret = '3NXBYATWGIIZ3LEV'
+	my_secret = 'KZS774YENHNW2SVU'
 	my_token = str(get_totp_token(my_secret))
 	xsh.Screen.Send(my_token+'\r')
 

@@ -42,7 +42,8 @@ def IP_FIN(ip):
 
 def Main():	
 	import onetimepass as otp
-	my_secret = '3NXBYATWGIIZ3LEV'
+	#my_secret = '3NXBYATWGIIZ3LEV'
+	my_secret = 'KZS774YENHNW2SVU'
 	my_token = str(Token(my_secret))
 	###get IP addr
 	IP_ORI = re.findall(r"\d+", str(xsh.Session.Path.split('\\')[-1]))
@@ -51,13 +52,17 @@ def Main():
 	#	xsh.Screen.Send(str(abs(int(IP[i])))+'.')
 	#xsh.Screen.Send(str(abs(int(IP[3])))+'\r')
 	IP = IP_FIN(IP_ORI)
-	#xsh.Session.Sleep(1000)
-	result = xsh.Screen.WaitForString('OpenSSH\home\mr_ac>')
-	xsh.Screen.Send('ssh -i D:\PyCharm\Git_OPS\liuchenggong-jumpserver.pem liuchenggong@jumper.izuche.com -p 2222\r')
+	#result = xsh.Screen.WaitForString('OpenSSH\home\mr_ac>')
+	#xsh.Screen.Send('ssh -i D:\PyCharm\Git_OPS\liuchenggong-jumpserver.pem liuchenggong@jumper.izuche.com -p 2222\r')
 	result = xsh.Screen.WaitForString('Please enter 6 digits')
 	xsh.Screen.Send(my_token+'\r')
 	result = xsh.Screen.WaitForString('Opt>')
+	xsh.Session.Sleep(100)
 	xsh.Screen.Send(str(IP)+'\r')
+
+	xsh.Session.Sleep(100)
 	result = xsh.Screen.WaitForString(' ~]$ ')
-	xsh.Screen.Send('sudo su -\rsu - dig\r')
+	xsh.Screen.Send('sudo su - dig\r')
+	xsh.Session.Sleep(100)
+	result = xsh.Screen.WaitForString(' ~]$ ')
 	xsh.Screen.Clear()
