@@ -42,10 +42,6 @@ def IP_FIN(ip):
 
 def Main():	
 	import onetimepass as otp
-<<<<<<< HEAD
-	#my_secret = '3NXBYATWGIIZ3LEV'
-=======
->>>>>>> 23572652dbae850e9a3a9f64b69e68978d77e970
 	my_secret = 'KZS774YENHNW2SVU'
 	my_token = str(Token(my_secret))
 	###get IP addr
@@ -65,7 +61,7 @@ def Main():
 
 	xsh.Session.Sleep(100)
 	result = xsh.Screen.WaitForString(' ~]$ ')
-	xsh.Screen.Send('sudo su - dig\r')
+	xsh.Screen.Send('sudo su -\rsu - dig\r')
 	xsh.Session.Sleep(100)
 	result = xsh.Screen.WaitForString(' ~]$ ')
 	xsh.Screen.Clear()
