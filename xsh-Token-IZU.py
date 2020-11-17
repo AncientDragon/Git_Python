@@ -31,6 +31,7 @@ def Main():
 	result = xsh.Screen.WaitForString('Opt>')
 	xsh.Session.Sleep(100)
 	xsh.Screen.Send(str(IP)+'\r')
+	xsh.Session.Sleep(100)
 	xsh.Screen.Send('\r')
 
 	xsh.Session.Sleep(100)
