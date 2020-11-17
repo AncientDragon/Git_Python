@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Git_Python.iml" filepath="$PROJECT_DIR$/.idea/Git_Python.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Git_Shell/.idea/Git_Shell.iml" filepath="$PROJECT_DIR$/../Git_Shell/.idea/Git_Shell.iml" />
-    </modules>
-  </component>
-</project>
