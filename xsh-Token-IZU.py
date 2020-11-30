@@ -20,7 +20,10 @@ def Main():
 	###get GoogleToken
 	import onetimepass as otp
 	my_secret = 'KZS774YENHNW2SVU'
-	my_token = otp.get_totp(my_secret)
+	my_token=""
+	my_token1 = otp.get_totp(my_secret)
+	if len(str(my_token1)) == 6:
+		my_token=my_token1
 	###get IP addr
 	IP_ORI = re.findall(r"\d+", str(xsh.Session.Path.split('\\')[-1]))
 	IP = IP_FIN(IP_ORI)
